@@ -182,7 +182,10 @@ $cities = array("New York City", "Seoul", "Tokyo", "Mexico City", "Shanghai", "L
 
 // sort the array
 $citiesSorted = sort($cities);
-
+$komma = implode(",", $cities);
+echo "<p>";
+echo $komma;
+echo "</p>";
 /*
 $i;
 for($i = 0; $i < count($citiesSorted); $i++){
@@ -192,7 +195,11 @@ for($i = 0; $i < count($citiesSorted); $i++){
 
 $nexCities = array("Calcutta", "Los Angeles", "Osaka", "Beijing");
 array_push($cities, $nexCities);
-print_r($cities);
+//print_r($cities);
+$komma2 = implode(",", $cities);
+echo "<p>";
+echo $komma2;
+echo "</p>";
 
 
 /***********************************************************************************/
@@ -231,27 +238,28 @@ echo "<h3>";
 echo "EXCERCISE 11";
 echo "</h3>";
 
-var width = 100;
-var height = 100;
+$width = 100;
+$height = 100;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	if (!empty($_POST["width"])) {
-  		$width = $_POST["width"]);
+  		$width = $_POST["width"];
 
 		if (!empty($_POST["height"])) {
-	  	$height = $_POST["email"];
+	  	$height = $_POST["height"];
 	  }	
-	  echo “The calculated area of " .$width. "and " .$height "is: (calculated area)”.
+	  $calculate = $width * $height; 
+	  echo "The calculated area of " .$width. "and " .$height . " is " . $calculate;
   	}
 }
 
 
 ?>
 
-<form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+<form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
 	<label for="width">Choose your width</label><input type="text" name="width">
 	<br />
-	<label for="height">Choose your height</label><input type="text" name="width">
+	<label for="height">Choose your height</label><input type="text" name="height">
 	<br />
 	 <input id="send" type="submit" name="submit" value="Submit">
 
